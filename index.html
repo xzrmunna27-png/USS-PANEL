@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReselPonno - Reseller BD</title>
+    <script>
+      /**
+       * Shield against scripts attempting to override window.fetch
+       * in environments where it's a read-only getter (common in some bridge/iframe contexts).
+       */
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(v) { console.warn('Override of fetch blocked to prevent TypeError'); },
+            configurable: true
+          });
+        } catch (e) {
+          // Failure to define is fine, as long as it doesn't crash here
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
